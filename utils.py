@@ -201,3 +201,17 @@ def save_bboxes(image, output_dict, draw=False):
 
             # Taking only one object from each image
             break
+
+
+"""
+
+xmin = 289.64
+ymin = 205.94
+xmax = 383.92
+ymax = 237.77
+
+(left, right, top, bottom) = (xmin , xmax ,
+                                ymin , ymax )
+
+
+"""
