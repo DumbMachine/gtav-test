@@ -10,8 +10,8 @@ from licenseplates.trainer import Trainer
 
 def main(args):
     # Register licenseplates dataset
-    register_licenseplates_voc("licenseplates_train", "datasets/licenseplates", "train")
-    register_licenseplates_voc("licenseplates_test", "datasets/licenseplates", "test")
+    register_licenseplates_voc("humans_train", "datasets/humans", "train")
+    register_licenseplates_voc("humans_test", "datasets/humans", "test")
 
     # Setup model configuration
     cfg = setup_cfg(args)
