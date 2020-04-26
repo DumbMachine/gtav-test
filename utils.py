@@ -159,8 +159,8 @@ def save_bboxes(image, output_dict, draw=False):
     """
     # the information to be saved here
     filename = str(uuid.uuid4())
-    xml_path = f"datasets/humans/annotations/{filename}.xml"
-    image_path  = f"datasets/humans/images/{filename}.jpg"
+    xml_path = f"datasets/licenseplates/annotations/{filename}.xml"
+    image_path  = f"datasets/licenseplates/images/{filename}.jpg"
 
     ret = []
     image = cv2.resize(image, (800, 600))
@@ -191,10 +191,10 @@ def save_bboxes(image, output_dict, draw=False):
             template = template.replace("WIDTH", str(600))
             template = template.replace("HEIGHT",str(800))
             template = template.replace("FILENAME", filename)
-            template = template.replace("YMIN", str(left))
-            template = template.replace("XMIN", str(right))
-            template = template.replace("YMAX", str(top))
-            template = template.replace("XMAX", str(bottom))
+            template = template.replace("XMIN", str(left))
+            template = template.replace("XMAX", str(right))
+            template = template.replace("YMIN", str(top))
+            template = template.replace("YMAX", str(bottom))
 
             open(xml_path, "w").write(template)
             cv2.imwrite(image_path, image)
@@ -205,13 +205,29 @@ def save_bboxes(image, output_dict, draw=False):
 
 """
 
-xmin = 289.64
-ymin = 205.94
-xmax = 383.92
-ymax = 237.77
+
+
+images = glob("/home/dumbmachine/demos/detectron2-humans/datasets/licenseplates/images/*")
+
+image = random.choice(images)
+print(image)
+
+xmax=471.4616298675537
+xmin=337.357759475708
+ymax=540.5477285385132
+ymin=387.92381286621094
 
 (left, right, top, bottom) = (xmin , xmax ,
                                 ymin , ymax )
 
+image = Image.open("/home/dumbmachine/demos/detectron2-humans/datasets/licenseplates/images/3a7e668c-0ff5-435d-8493-b42d86ce8dfc.jpg")
 
+copy_image = image.copy()
+draw = ImageDraw.Draw(copy_image)
+im_width, im_height = copy_image.size
+
+
+draw.line([(left, top), (left, bottom), (right, bottom),
+            (right, top), (left, top)], width=4, fill="red")
+copy_image.show()
 """
