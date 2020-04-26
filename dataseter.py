@@ -18,3 +18,28 @@ from utils import *
 vids = glob(os.path.expanduser("~/demos/vids/*"))
 
 create_screenshots_from_video(video_path=vids[0])
+
+# creating the train and test thing
+import random
+test_file  = open("datasets/humans/test.txt", "w+")
+train_file= open("datasets/humans/train.txt", "w+")
+test_size = 0.2
+
+images = glob("datasets/humans/images/*")
+test_files = random.sample(images, int(len(images)*test_size))
+train_files = set(images) - set(test_files)
+
+# removing the absolute paths from the images
+train_files = [i.split("/")[-1] for i in train_files]
+test_files = [i.split("/")[-1] for i in test_files]
+
+strin = ""
+for file in train_files:
+    strin += file+"\n"
+train_file.write(strin)
+
+
+strin = ""
+for file in test_files:
+    strin += file+"\n"
+test_file.write(strin)
