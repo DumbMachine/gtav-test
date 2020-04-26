@@ -36,26 +36,7 @@ def main(args):
         args.opts.append(str(args.confidence_threshold))
         args.opts.append('MODEL.RETINANET.SCORE_THRESH_TEST')
         args.opts.append(str(args.confidence_threshold))
-
-    dataset_name = "licenseplates_test"
-    register_licenseplates_voc(dataset_name, "datasets/licenseplates", "test")
-    cfg = setup_cfg(args)
-    predictor = DefaultPredictor(cfg)
-    dataset_dicts = DatasetCatalog.get(dataset_name)
-    for d in random.sample(dataset_dicts, args.samples):
-        img = cv2.imread(d["file_name"])
-        prediction = predictor(img)
-        visualizer = Visualizer(img[:, :, ::-1],
-                                metadata=MetadataCatalog.get(dataset_name),
-                                scale=args.scale)
-        vis = visualizer.draw_instance_predictions(prediction["instances"].to("cpu"))
-        cv2.imshow(dataset_name, vis.get_image()[:, :, ::-1])
-
-        # Exit? Press ESC
-        if cv2.waitKey(0) & 0xFF == 27:
-            break
-
-    cv2.destroyAllWindows()
+        print("args", type(args), args)
 
 
 if __name__ == "__main__":
