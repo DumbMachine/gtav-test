@@ -1,0 +1,25 @@
+<annotation>
+    <folder>images</folder>
+    <filename>85f43472-6ca6-4d33-af77-f12a33796b7e</filename>
+    <source>
+        <database>Unknown</database>
+    </source>
+    <size>
+        <width>600</width>
+        <height>800</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>licenseplates</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>713.0198001861572</xmin>
+            <ymin>171.13404273986816</ymin>
+            <xmax>592.7878618240356</xmax>
+            <ymax>200.95472931861877</ymax>
+        </bndbox>
+    </object>
+</annotation>
