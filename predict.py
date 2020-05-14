@@ -5,15 +5,15 @@ from detectron2.utils.visualizer import Visualizer
 from detectron2.engine import DefaultPredictor
 from detectron2.data import DatasetCatalog, MetadataCatalog
 
-from licenseplates.dataset import register_licenseplates_voc
-from licenseplates.config import setup_cfg
+from humans.dataset import register_humans_voc
+from humans.config import setup_cfg
 
 
 def parse_args():
     import argparse
 
     # Parse command line arguments
-    ap = argparse.ArgumentParser(description="Licenseplates prediction")
+    ap = argparse.ArgumentParser(description="humans prediction")
     ap.add_argument("--samples", type=int, default=10)
     ap.add_argument("--scale", type=float, default=1.0)
 

@@ -21,11 +21,11 @@ create_screenshots_from_video(video_path=vids[0])
 
 # creating the train and test thing
 import random
-test_file  = open("datasets/licenseplates/test.txt", "w+")
-train_file= open("datasets/licenseplates/train.txt", "w+")
+test_file  = open("datasets/humans/test.txt", "w+")
+train_file= open("datasets/humans/train.txt", "w+")
 test_size = 0.3
 
-images = glob("datasets/licenseplates/images/*")
+images = glob("datasets/humans/images/*")
 test_files = random.sample(images, int(len(images)*test_size))
 train_files = set(images) - set(test_files)
 

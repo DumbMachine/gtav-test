@@ -159,8 +159,8 @@ def save_bboxes(image, output_dict, draw=False):
     """
     # the information to be saved here
     filename = str(uuid.uuid4())
-    xml_path = f"datasets/licenseplates/annotations/{filename}.xml"
-    image_path  = f"datasets/licenseplates/images/{filename}.jpg"
+    xml_path = f"datasets/humans/annotations/{filename}.xml"
+    image_path  = f"datasets/humans/images/{filename}.jpg"
 
     ret = []
     image = cv2.resize(image, (800, 600))
@@ -207,7 +207,7 @@ def save_bboxes(image, output_dict, draw=False):
 
 
 
-images = glob("/home/dumbmachine/demos/detectron2-humans/datasets/licenseplates/images/*")
+images = glob("/home/dumbmachine/demos/detectron2-humans/datasets/humans/images/*")
 
 image = random.choice(images)
 print(image)
@@ -220,7 +220,7 @@ ymin=387.92381286621094
 (left, right, top, bottom) = (xmin , xmax ,
                                 ymin , ymax )
 
-image = Image.open("/home/dumbmachine/demos/detectron2-humans/datasets/licenseplates/images/3a7e668c-0ff5-435d-8493-b42d86ce8dfc.jpg")
+image = Image.open("/home/dumbmachine/demos/detectron2-humans/datasets/humans/images/3a7e668c-0ff5-435d-8493-b42d86ce8dfc.jpg")
 
 copy_image = image.copy()
 draw = ImageDraw.Draw(copy_image)

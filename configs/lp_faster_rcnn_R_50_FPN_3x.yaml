@@ -6,10 +6,10 @@ MODEL:
     DEPTH: 50
   ROI_HEADS:
     BATCH_SIZE_PER_IMAGE: 128
-    NUM_CLASSES: 1  # only has one class (licenseplate)
+    NUM_CLASSES: 1  # only has one class (human)
 DATASETS:
-  TRAIN: ("licenseplates_train",)
-  TEST: ("licenseplates_test",)
+  TRAIN: ("humans_train",)
+  TEST: ("humans_test",)
 SOLVER:
   BASE_LR: 0.02
   IMS_PER_BATCH: 2

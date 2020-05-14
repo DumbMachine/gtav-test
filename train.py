@@ -3,15 +3,15 @@ import os
 from detectron2.checkpoint import DetectionCheckpointer
 from detectron2.engine import default_argument_parser, launch
 
-from licenseplates.dataset import register_licenseplates_voc
-from licenseplates.config import setup_cfg
-from licenseplates.trainer import Trainer
+from humans.dataset import register_humans_voc
+from humans.config import setup_cfg
+from humans.trainer import Trainer
 
 
 def main(args):
-    # Register licenseplates dataset
-    register_licenseplates_voc("licenseplates_train", "datasets/licenseplates", "train")
-    register_licenseplates_voc("licenseplates_test", "datasets/licenseplates", "test")
+    # Register humans dataset
+    register_humans_voc("humans_train", "datasets/humans", "train")
+    register_humans_voc("humans_test", "datasets/humans", "test")
 
     # Setup model configuration
     cfg = setup_cfg(args)
